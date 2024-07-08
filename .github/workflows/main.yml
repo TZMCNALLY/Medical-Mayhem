@@ -1,0 +1,70 @@
+name: Heroku Deployment
+on: # Only deploys when pushing to main branch
+  push:
+    branches:
+      - main
+
+env:
+  CI: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          npm install
+          cd client
+          npm install
+          cd ../server
+          npm install
+          cd ..
+      - name: Build
+        run: |
+          cd client
+          npm run build
+
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: client/build
+
+  # Deploy to Heroku
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.2
+      - uses: akhileshns/heroku-deploy@v3.13.15 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API}}
+          heroku_app_name: "medical-mayhem" # Must be unique in Heroku
+          heroku_email: "mcnallyto@gmail.com"
+
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - name: Run tests
+        run: |
+          cd server
+          npm install
+          npm test
+          cd ..
+          cd client
+          npm install
+          npx cypress run

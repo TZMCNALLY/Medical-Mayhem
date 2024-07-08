@@ -1,0 +1,1 @@
+{"version":3,"file":"avatar-router.js","sourceRoot":"","sources":["../../../routes/avatar-router.ts"],"names":[],"mappings":";;;;;AAAA,sDAA6B;AAC7B,MAAM,MAAM,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAA;AAC/B,wEAAmE;AAEnE,+BAA+B;AAE/B,MAAM,CAAC,GAAG,CAAC,UAAU,EAAE,oCAAgB,CAAC,aAAa,CAAC,CAAC;AACvD,MAAM,CAAC,IAAI,CAAC,mBAAmB,EAAE,oCAAgB,CAAC,gBAAgB,CAAC,CAAC;AAEpE,kBAAe,MAAM,CAAA"}

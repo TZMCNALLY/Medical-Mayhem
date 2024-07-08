@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "cd server && tsc && node dist/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main --force"
+  },
+  "engines": {
+    "node": "20.9.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  },
+  "heroku-run-build-script": true
+}

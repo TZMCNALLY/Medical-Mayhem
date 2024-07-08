@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: "Inter";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  background-color: #AFD9AE;
+}
+
+#map-builder-screen {
+  text-align: center;
+}
+
+/* #home-screen-wrapper {
+  width: 100%;
+  height: 100%;
+} */
+/* #home-screen {
+  width: 100vw;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+#main-content {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+}
+
+#body {
+  background-color: #AFD9AE;
+  flex: 95;
+  height: 100vh;
+}
+
+#sidebar {
+  display: flex;
+  flex: 5;
+  height: 100vh;
+  align-items: center;
+}
+
+#home-menu {
+  height: 95vh;
+  bottom: 0px;
+  margin-top: 5vh;
+}
+
+#character-card {
+  width: 100%;
+}
+
+#settings-guest {
+  text-align: left;
+}
+
+#controls-menu {
+  text-align: left;
+}
